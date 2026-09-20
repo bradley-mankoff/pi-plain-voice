@@ -1,0 +1,98 @@
+# Hygiene gate terms. Matching wordlists live here as data; prose docs stay positive.
+# Lines starting with # are comments. Sections select the rule class:
+# [residue] chat scaffolding (any hit fails), [slop] inflated wording
+# (fails past the threshold below, else review), [canonical] old -> new
+# phrasing suggestions (review).
+slop_fail_n=3
+
+[residue]
+as an ai
+as a language model
+as an artificial intelligence
+hope this helps
+let me know
+in conclusion
+in summary
+it is worth noting
+generally
+arguably
+i cannot
+we have not
+my training data
+my knowledge cutoff
+in this session
+here to help
+great question
+feel free to ask
+happy to help
+as of my last
+
+[slop]
+robust
+seamless
+intricate
+delve
+tapestry
+crucial
+pivotal
+landscape
+showcase
+underscore
+leverage
+comprehensive
+cutting-edge
+cutting edge
+vibrant
+groundbreaking
+renowned
+nestled
+operationalize
+methodology
+functionality
+meticulous
+ever-evolving
+realm
+beacon
+embark
+elevate
+unlock
+unleash
+game-changer
+paradigm
+holistic
+synergy
+ecosystem
+streamline
+foster
+testament
+multifaceted
+interplay
+deep dive
+dive into
+
+[canonical]
+utilize -> use
+utilise -> use
+leverage -> use
+facilitate -> help
+commence -> start
+terminate -> end
+numerous -> many
+additionally -> also
+in order to -> to
+aforementioned -> that
+prior to -> before
+due to the fact that -> because
+in the event that -> if
+at this point in time -> now
+is able to -> can
+are able to -> can
+has the ability to -> can
+in close proximity -> near
+a large number of -> many
+a sufficient amount of -> enough
+take into consideration -> consider
+make use of -> use
+have an impact on -> affect
+is indicative of -> shows
+in relation to -> about

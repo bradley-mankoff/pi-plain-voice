@@ -1,0 +1,15 @@
+{
+  "name": "pi-plain-voice",
+  "version": "0.1.0",
+  "description": "Plain artifact voice for Pi: humanizer rewrite rules plus a fast stdlib hygiene gate, enforced in chat and checked on demand.",
+  "license": "MIT",
+  "keywords": ["pi-package"],
+  "pi": {
+    "extensions": ["./extensions"],
+    "skills": ["./skills"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  }
+}
