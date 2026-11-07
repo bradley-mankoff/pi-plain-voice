@@ -1,7 +1,7 @@
 /**
  * plain-voice — enforce plain artifact voice in Pi chat.
  *
- * Appends the voice rules to the system prompt on `before_agent_start`
+ * Adds the voice rules as a system prompt section on `before_agent_start`
  * so every turn writes for a stranger opening the artifact cold: full
  * sentences, full words, concrete actors, each claim beside its
  * evidence. `/voice` reports state; `/voice strict|relaxed|off`
@@ -31,13 +31,19 @@ type Mode = "strict" | "relaxed" | "off";
 export default function plainVoiceExtension(pi: ExtensionAPI): void {
 	let mode: Mode = "strict";
 
+	// A section, not a returned `systemPrompt`: returning one freezes the prompt as it
+	// stands, so sections that extensions loaded later add (stretchtext's guide) never
+	// reach the model. A section key also keeps a second loaded copy from doubling it.
 	pi.on("before_agent_start", async (event) => {
-		if (mode === "off") return;
-		const extra =
+		const sections = event.systemPromptOptions.sections;
+		if (mode === "off") {
+			delete sections.plain_voice;
+			return;
+		}
+		sections.plain_voice =
 			mode === "strict"
-				? `\n\n${VOICE}`
-				: "\n\nPlain artifact voice (relaxed): full sentences, concrete actors, claims beside evidence.";
-		return { systemPrompt: event.systemPrompt + extra };
+				? VOICE
+				: "Plain artifact voice (relaxed): full sentences, concrete actors, claims beside evidence.";
 	});
 
 	pi.registerCommand("voice", {
